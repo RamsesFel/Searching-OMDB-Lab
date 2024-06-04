@@ -1,0 +1,34 @@
+﻿@model List<MovieModel> 
+
+<form asp-method="post" asp-action="MovieNight">
+    <label>Movie Title:</label>
+    <input type="text" name="Title1" id="Title1" />
+
+    <label>Movie Title:</label>
+    <input type="text" name="Title2" id="Title2" />
+
+    <label>Movie Title:</label>
+    <input type="text" name="Title3" id="Title3" />
+
+    <input type="submit" value="Submit" />
+</form>
+
+@{
+
+    if (Model != null)
+    {
+        foreach(MovieModel m in Model)
+        {
+            foreach (Search n in m.Search)
+            {
+                <h1>Title: @n.Title</h1>
+                <p>Year: @n.Year</p>
+                <p>Type: @n.Type</p>
+                <img src="@n.Poster" />
+            }
+        }
+    }
+    
+            
+
+}

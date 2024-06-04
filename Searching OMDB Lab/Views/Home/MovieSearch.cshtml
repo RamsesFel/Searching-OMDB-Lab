@@ -1,0 +1,23 @@
+﻿@model MovieModel
+
+<form asp-method="post" asp-action="MovieSearch">
+    <label>Movie Title:</label>
+    <input type="text" name="Title" id="Title" />
+
+    <input type="submit" value="Submit" />
+</form>
+
+@{
+    if(Model != null)
+    {
+        foreach(Search m in Model.Search)
+        {
+             <h1>Title: @m.Title</h1>
+             <p>Year: @m.Year</p>
+             <p>Type: @m.Type</p>
+             <img src="@m.Poster" />
+        }
+
+    }
+    
+}
